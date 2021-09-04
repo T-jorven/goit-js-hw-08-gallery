@@ -72,15 +72,15 @@ const imageSource = document.querySelector('img.lightbox__image');
 
 const clearButton = document.querySelector('button[data-action="close-lightbox"]');
   
-
+document.querySelector('button[data-action="close-lightbox"]');
 
  //CREATION OF THE GALLERY
 
 
 
 
-function createGallery({ preview, description }) {
-  return `<li class = "gallery__item"><a class = "gallery__link"><img class = "gallery__image" src='${preview}' alt='${description}'></a></li>`;
+function createGallery({ preview, original, description }) {
+  return `<li class = "gallery__item"><a class = "gallery__link"><img class = "gallery__image" src='${preview}' data-sourse = '${original}' alt='${description}'></a></li>`;
 }
 const markup = galleryItems.map(createGallery).join('');
 
@@ -113,7 +113,8 @@ function closeUPView(evt) {
        //1
         container.classList.add('is-open');
         //2
-        
+        imageSource.setAttribute('src', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
+        imageSource.setAttribute('data-source', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
         }
     
 
