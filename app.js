@@ -67,7 +67,7 @@
 
  //CREATION OF THE GALLERY
  const gallery = document.querySelector('.js-gallery');
-console.log(gallery);
+
 
 
 function createGallery({ preview, description }) {
@@ -76,3 +76,53 @@ function createGallery({ preview, description }) {
 const markup = galleryItems.map(createGallery).join('');
 
 gallery.insertAdjacentHTML('beforeend', markup);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DELEGATION
+
+
+/* const fullSize = galleryItems.map(function (item) {
+    return item
+});
+console.log(fullSize) */
+gallery.addEventListener('click', closeUPView);
+const container = document.querySelector('div.lightbox');
+
+function closeUPView(evt) {
+    console.log(evt.target.nodeName);
+    if (evt.target.nodeName !== 'IMG') {
+        return;
+    } else {
+       
+        container.classList.add('is-open');
+    }
+
+}
+
+
+
+
+
+
+//MODAL CLOSED
+
+const clearButton = document.querySelector('button[data-action="close-lightbox"]');
+
+clearButton.addEventListener('click', modalClose);
+
+function modalClose() {
+    container.classList.remove('is-open');
+}
