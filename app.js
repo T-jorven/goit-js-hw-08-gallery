@@ -1,4 +1,4 @@
-const galleryItems = [
+ const galleryItems = [
     {
         preview:
             'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg',
@@ -62,4 +62,17 @@ const galleryItems = [
             'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
         description: 'Lighthouse Coast Sea',
     },
-];
+ ];
+
+
+ //CREATION OF THE GALLERY
+ const gallery = document.querySelector('.js-gallery');
+console.log(gallery);
+
+
+function createGallery({ preview, description }) {
+  return `<li class = "gallery__item" ><img class = "gallery__image" src='${preview}' alt='${description}'></li>`;
+}
+const markup = galleryItems.map(createGallery).join('');
+
+gallery.insertAdjacentHTML('beforeend', markup);
