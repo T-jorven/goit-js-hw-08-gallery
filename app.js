@@ -65,13 +65,22 @@
  ];
 
 
+const gallery = document.querySelector('.js-gallery');
+
+const container = document.querySelector('div.lightbox');
+const imageSource = document.querySelector('img.lightbox__image');
+
+const clearButton = document.querySelector('button[data-action="close-lightbox"]');
+  
+
+
  //CREATION OF THE GALLERY
- const gallery = document.querySelector('.js-gallery');
+
 
 
 
 function createGallery({ preview, description }) {
-  return `<li class = "gallery__item" ><img class = "gallery__image" src='${preview}' alt='${description}'></li>`;
+  return `<li class = "gallery__item"><a class = "gallery__link"><img class = "gallery__image" src='${preview}' alt='${description}'></a></li>`;
 }
 const markup = galleryItems.map(createGallery).join('');
 
@@ -88,29 +97,28 @@ gallery.insertAdjacentHTML('beforeend', markup);
 
 
 
-
-
-
 // DELEGATION
 
 
-/* const fullSize = galleryItems.map(function (item) {
-    return item
-});
-console.log(fullSize) */
+
 gallery.addEventListener('click', closeUPView);
-const container = document.querySelector('div.lightbox');
+
+//let originalPicture = galleryItems.flatMap(item => item.original)
+
 
 function closeUPView(evt) {
-    console.log(evt.target.nodeName);
     if (evt.target.nodeName !== 'IMG') {
         return;
     } else {
-       
+       //1
         container.classList.add('is-open');
-    }
+        //2
+        
+        }
+    
 
 }
+
 
 
 
@@ -119,10 +127,24 @@ function closeUPView(evt) {
 
 //MODAL CLOSED
 
-const clearButton = document.querySelector('button[data-action="close-lightbox"]');
+
 
 clearButton.addEventListener('click', modalClose);
 
 function modalClose() {
     container.classList.remove('is-open');
 }
+
+
+
+//MODAL IMAGE INSERTION
+
+/* function createItemImage(obj) {
+  const galleryItemImage = document.createEle;
+  galleryItemImage.classList.add('gallery__image');
+  galleryItemImage.setAttribute('src', obj.preview);
+  galleryItemImage.setAttribute('data-source', obj.original);
+  galleryItemImage.setAttribute('alt', obj.description);
+
+  return galleryItemImage;
+} */
