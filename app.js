@@ -69,6 +69,7 @@ const gallery = document.querySelector('.js-gallery');
 
 const container = document.querySelector('div.lightbox');
 const imageSource = document.querySelector('img.lightbox__image');
+const lightboxOverlay = document.querySelector('.lightbox__overlay');
 
 const clearButton = document.querySelector('button[data-action="close-lightbox"]');
   
@@ -80,7 +81,7 @@ document.querySelector('button[data-action="close-lightbox"]');
 
 
 function createGallery({ preview, original, description }) {
-  return `<li class = "gallery__item"><a class = "gallery__link"><img class = "gallery__image" src='${preview}' data-sourse = '${original}' alt='${description}'></a></li>`;
+  return `<li class = "gallery__item"><a class = "gallery__link"  href = "${original}"><img class = "gallery__image" src='${preview}' data-sourse = '${original}' alt='${description}'></a></li>`;
 }
 const markup = galleryItems.map(createGallery).join('');
 
@@ -113,8 +114,8 @@ function closeUPView(evt) {
        //1
         container.classList.add('is-open');
         //2
-        imageSource.setAttribute('src', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
-        imageSource.setAttribute('data-source', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
+    imageSource.setAttribute('src', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
+        imageSource.setAttribute('data-source', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg'); 
         }
     
 
@@ -131,6 +132,7 @@ function closeUPView(evt) {
 
 
 clearButton.addEventListener('click', modalClose);
+lightboxOverlay.addEventListener('click', modalClose);
 
 function modalClose() {
     container.classList.remove('is-open');
