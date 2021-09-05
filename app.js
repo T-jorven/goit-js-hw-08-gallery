@@ -113,9 +113,14 @@ function closeUPView(evt) {
     } else {
        //1
         container.classList.add('is-open');
+
         //2
-    imageSource.setAttribute('src', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg');
-        imageSource.setAttribute('data-source', 'https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg'); 
+    const imageRef = evt.target;
+    const largeImgURL = imageRef.dataset.source;
+        console.log(largeImgURL)
+        
+        imageSource.setAttribute('src', largeImgURL);
+        imageSource.setAttribute('data-source', largeImgURL); 
         }
     
 
