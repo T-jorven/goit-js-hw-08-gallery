@@ -138,3 +138,11 @@ body {
 .lightbox__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.arrow{
+  fill:black;
+  position: absolute;
+  height:60px;
+  width: 60px;
+  
+}
