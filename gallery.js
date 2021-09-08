@@ -66,7 +66,6 @@ function modalClose() {
      imageSource.dataset.index = '';
 }
 
-
-
+//arrow gallery
 
 
