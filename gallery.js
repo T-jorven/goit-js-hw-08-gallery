@@ -45,8 +45,8 @@ function closeUPView(evt) {
         container.classList.add('is-open');
         const imageRef = evt.target;
         const largeImgURL = imageRef.dataset.sourse;
-        imageSource.src = largeImgURL;
-        imageSource.alt = imageRef.alt;
+       
+        changeImageSourse(largeImgURL,imageRef.alt)
 
         }  
 }
@@ -61,11 +61,16 @@ lightboxOverlay.addEventListener('click', modalClose);
 
 function modalClose() {
     container.classList.remove('is-open');
-     imageSource.src = '';
-     imageSource.alt = '';
-     imageSource.dataset.index = '';
+     changeImageSourse('', '');
+     
+    imageSource.dataset.index = '';
+   
 }
 
 //arrow gallery
 
 
+function changeImageSourse(sourse, alternative) {
+       imageSource.src = sourse;
+       imageSource.alt = alternative;
+}
